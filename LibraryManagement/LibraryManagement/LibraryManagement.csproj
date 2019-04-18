@@ -46,16 +46,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookEnter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookEnter.Designer.cs">
+      <DependentUpon>BookEnter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Book.cs" />
     <Compile Include="Classes\Movie.cs" />
     <Compile Include="Classes\User.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="DefaultForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="DefaultForm.Designer.cs">
+      <DependentUpon>DefaultForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Program.cs" />
+    <Compile Include="MovieEnter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MovieEnter.Designer.cs">
+      <DependentUpon>MovieEnter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

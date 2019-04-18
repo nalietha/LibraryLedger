@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagement
 {
-    public partial class Form1 : Form
+    public partial class MovieEnter : Form
     {
-        public Form1()
+        public MovieEnter()
         {
             InitializeComponent();
         }
