@@ -8,5 +8,6 @@ namespace LibraryManagement.Classes
 {
     class User
     {
+
     }
 }
