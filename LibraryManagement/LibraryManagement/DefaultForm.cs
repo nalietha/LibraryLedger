@@ -16,5 +16,10 @@ namespace LibraryManagement
         {
             InitializeComponent();
         }
+
+        private void Panel4_onclick(object sender, PaintEventArgs e)
+        {
+            //Bring up Add book Interface
+        }
     }
 }

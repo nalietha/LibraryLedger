@@ -8,5 +8,18 @@ namespace LibraryManagement.Classes
 {
     class Movie
     {
+        private string _title;
+        private string _directorFirstName;
+        private string _directorLastName;
+        private string _summary;
+        private string _producer;
+        
+        //private string[] _actors = new Array;
+
+
+
+
+
+
     }
 }
