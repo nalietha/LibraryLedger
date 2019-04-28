@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace LibraryManagement
 {
-    static class Program
+    class Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -18,5 +19,10 @@ namespace LibraryManagement
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new DefaultForm());
         }
+
+        // Init Database
+        
+
+
     }
 }

@@ -16,10 +16,18 @@ namespace LibraryManagement
         {
             InitializeComponent();
         }
-
-        private void Panel4_onclick(object sender, PaintEventArgs e)
+       
+        private void btnAddBook_Click(object sender, EventArgs e)
         {
-            //Bring up Add book Interface
+            var bookDia = new BookEnter();
+            bookDia.ShowDialog();
+
+        }
+
+        private void btnAddMovie_Click(object sender, EventArgs e)
+        {
+            var movieDia = new MovieEnter();
+            movieDia.ShowDialog();
         }
     }
 }
