@@ -7,7 +7,7 @@ using System.Data.SQLite;
 
 namespace LibraryManagement
 {
-    class Program
+    class Program 
     {
         /// <summary>
         /// The main entry point for the application.
@@ -20,7 +20,6 @@ namespace LibraryManagement
             Application.Run(new DefaultForm());
         }
 
-        // Init Database
         
 
 
