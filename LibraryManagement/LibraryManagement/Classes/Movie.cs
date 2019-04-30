@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagement.Classes
 {
-    class Movie
+    class Movie : AddMedia
     {
         private string _title;
         private string _directorFirstName;
@@ -16,7 +16,10 @@ namespace LibraryManagement.Classes
         
         //private string[] _actors = new Array;
 
+        public override void SQLAddMedia()
+        {
 
+        }
 
 
 

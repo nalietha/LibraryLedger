@@ -70,6 +70,7 @@
     <Compile Include="BookEnter.Designer.cs">
       <DependentUpon>BookEnter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\AddMedia.cs" />
     <Compile Include="Classes\Book.cs" />
     <Compile Include="Classes\Movie.cs" />
     <Compile Include="Classes\User.cs" />
