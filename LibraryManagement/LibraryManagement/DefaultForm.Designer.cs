@@ -33,12 +33,13 @@
             this.Header = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSwitch = new System.Windows.Forms.Button();
             this.pnlCenterPiece = new System.Windows.Forms.Panel();
+            this.lvBookDisplay = new System.Windows.Forms.ListView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnAddMovie = new System.Windows.Forms.Button();
             this.btnAddBook = new System.Windows.Forms.Button();
-            this.lvBookDisplay = new System.Windows.Forms.ListView();
-            this.btnSwitch = new System.Windows.Forms.Button();
+            this.plExtendedView = new System.Windows.Forms.Panel();
             this.Header.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlCenterPiece.SuspendLayout();
@@ -100,10 +101,21 @@
             this.panel1.Size = new System.Drawing.Size(135, 429);
             this.panel1.TabIndex = 0;
             // 
+            // btnSwitch
+            // 
+            this.btnSwitch.Location = new System.Drawing.Point(0, 0);
+            this.btnSwitch.Name = "btnSwitch";
+            this.btnSwitch.Size = new System.Drawing.Size(135, 26);
+            this.btnSwitch.TabIndex = 0;
+            this.btnSwitch.Text = "Show Movies";
+            this.btnSwitch.UseVisualStyleBackColor = true;
+            this.btnSwitch.Click += new System.EventHandler(this.btnSwitch_Click);
+            // 
             // pnlCenterPiece
             // 
             this.pnlCenterPiece.AutoSize = true;
             this.pnlCenterPiece.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pnlCenterPiece.Controls.Add(this.plExtendedView);
             this.pnlCenterPiece.Controls.Add(this.lvBookDisplay);
             this.pnlCenterPiece.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCenterPiece.Location = new System.Drawing.Point(0, 0);
@@ -111,6 +123,15 @@
             this.pnlCenterPiece.Name = "pnlCenterPiece";
             this.pnlCenterPiece.Size = new System.Drawing.Size(898, 499);
             this.pnlCenterPiece.TabIndex = 3;
+            // 
+            // lvBookDisplay
+            // 
+            this.lvBookDisplay.Location = new System.Drawing.Point(139, 73);
+            this.lvBookDisplay.Name = "lvBookDisplay";
+            this.lvBookDisplay.Size = new System.Drawing.Size(611, 426);
+            this.lvBookDisplay.TabIndex = 0;
+            this.lvBookDisplay.UseCompatibleStateImageBehavior = false;
+            this.lvBookDisplay.View = System.Windows.Forms.View.Details;
             // 
             // panel3
             // 
@@ -152,24 +173,13 @@
             this.btnAddBook.UseVisualStyleBackColor = false;
             this.btnAddBook.Click += new System.EventHandler(this.btnAddBook_Click);
             // 
-            // lvBookDisplay
+            // plExtendedView
             // 
-            this.lvBookDisplay.Location = new System.Drawing.Point(139, 73);
-            this.lvBookDisplay.Name = "lvBookDisplay";
-            this.lvBookDisplay.Size = new System.Drawing.Size(611, 426);
-            this.lvBookDisplay.TabIndex = 0;
-            this.lvBookDisplay.UseCompatibleStateImageBehavior = false;
-            this.lvBookDisplay.View = System.Windows.Forms.View.Details;
-            // 
-            // btnSwitch
-            // 
-            this.btnSwitch.Location = new System.Drawing.Point(0, 0);
-            this.btnSwitch.Name = "btnSwitch";
-            this.btnSwitch.Size = new System.Drawing.Size(135, 26);
-            this.btnSwitch.TabIndex = 0;
-            this.btnSwitch.Text = "Show Movies";
-            this.btnSwitch.UseVisualStyleBackColor = true;
-            this.btnSwitch.Click += new System.EventHandler(this.btnSwitch_Click);
+            this.plExtendedView.Location = new System.Drawing.Point(141, 74);
+            this.plExtendedView.Name = "plExtendedView";
+            this.plExtendedView.Size = new System.Drawing.Size(609, 425);
+            this.plExtendedView.TabIndex = 1;
+            this.plExtendedView.Visible = false;
             // 
             // DefaultForm
             // 
@@ -208,6 +218,7 @@
         private System.Windows.Forms.Button btnAddBook;
         private System.Windows.Forms.ListView lvBookDisplay;
         private System.Windows.Forms.Button btnSwitch;
+        private System.Windows.Forms.Panel plExtendedView;
     }
 }
 

@@ -16,11 +16,6 @@ namespace LibraryManagement.Classes
         
         //private string[] _actors = new Array;
 
-        public override void SQLAddMedia()
-        {
-
-        }
-
 
 
 

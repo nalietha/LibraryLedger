@@ -250,7 +250,8 @@
             "Thriller\t",
             "Travel",
             "True crime",
-            "Young adult"});
+            "Young adult",
+            "Choose a Genre"});
             this.cbGenre.Location = new System.Drawing.Point(56, 109);
             this.cbGenre.Margin = new System.Windows.Forms.Padding(1);
             this.cbGenre.Name = "cbGenre";

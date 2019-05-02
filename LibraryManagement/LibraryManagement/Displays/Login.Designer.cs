@@ -110,6 +110,7 @@
             this.lblReg.Size = new System.Drawing.Size(46, 13);
             this.lblReg.TabIndex = 7;
             this.lblReg.Text = "Registar";
+            this.lblReg.Click += new System.EventHandler(this.lblReg_Click);
             // 
             // Login
             // 

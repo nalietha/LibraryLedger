@@ -13,10 +13,17 @@ namespace LibraryManagement
 {
     public partial class MovieEnter : Form
     {
+        private string _FileLocation= "..\\..\\Data\\UserNate.xml";
+        Classes.AddMedia MMedia = new Classes.AddMedia();
         public MovieEnter()
         {
             InitializeComponent();
         }
+        public MovieEnter(string User)
+        {
+
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string title = tbTitle.Text;
@@ -24,34 +31,10 @@ namespace LibraryManagement
             string summary = tbSummary.Text;
             string genre = cbGenre.SelectedText;
 
-            if (AddMedia(title, author, summary, genre))
-            {
-                clear();
-            }
-
-        }
-        public bool AddMedia(string title, string author,  string summary, string genre)
-        {
             if (CheckForData())
             {
-
-
-                int id = 1;
-                XDocument doc = XDocument.Load("..\\..\\Data\\UserNate.xml");
-                int numberOfBooks = doc.Descendants("Movie").Count();
-
-
-                XElement Movie = (
-                        new XElement("Movie", new XAttribute("id", numberOfBooks + 1),
-                        new XElement("Title", title),
-                        new XElement("Director", author),
-                        new XElement("Genre", genre),
-                        new XElement("Summary", summary)));
-
-                //doc.Element("User").Element("Books").Add(new XElement(Book));
-                doc.Root.Element("Movies").Add(Movie);
-
-                doc.Save("..\\..\\Data\\UserNate.xml");
+                MMedia.AddMovie(_FileLocation, title, author, summary, genre);
+                clear();
             }
             else
             {
@@ -60,6 +43,17 @@ namespace LibraryManagement
                 var result = MessageBox.Show(message, caption,
                              MessageBoxButtons.OK,
                              MessageBoxIcon.Question);
+            }
+        }
+        public bool AddMedia()
+        {
+            if (CheckForData())
+            {
+                
+            }
+            else
+            {
+
             }
 
             return true;

@@ -12,14 +12,15 @@ using System.Xml.Linq;
 
 namespace LibraryManagement
 {
+
     public partial class BookEnter : Form
     {
+        Classes.AddMedia Media = new Classes.AddMedia();
+
         private string _FileLocation = "..\\..\\Data\\UserNate.xml";
         public BookEnter()
         {
             InitializeComponent();
-
-
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -32,33 +33,21 @@ namespace LibraryManagement
             string genre = cbGenre.GetItemText(cbGenre.SelectedItem);
 
             //Using connection set up in program.cs
-            if (AddMedia(title, author,ISBN,summary,publisher,genre))
-            {
-                clear();
-            }
-
-        }
-        public bool AddMedia(string title, string author, string ISBN, string summary, string publisher, string genre)
-        {
             if (CheckForData())
             {
-                XDocument doc = XDocument.Load(_FileLocation);
-                int numberOfBooks = doc.Descendants("Book").Count();
-
-
-                XElement Book = (
-                        new XElement("Book", new XAttribute("id", numberOfBooks + 1),
-                        new XElement("Title", title),
-                        new XElement("Author", author),
-                        new XElement("Genre", genre),
-                        new XElement("ISBN", ISBN),
-                        new XElement("Publisher", publisher),
-                        new XElement("Summary", summary)));
-
-                //doc.Element("User").Element("Books").Add(new XElement(Book));
-                doc.Root.Element("Books").Add(Book);
-
-                doc.Save(_FileLocation);
+                if (CheckDuplicates(title, ISBN))
+                {
+                    string message = "Book is already in your Catalog";
+                    string caption = "Duplicate";
+                    var result = MessageBox.Show(message, caption,
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Question);
+                }
+                else
+                {
+                    Media.AddBook(_FileLocation, title, author, ISBN, summary, publisher, genre);
+                    clear();
+                }
             }
             else
             {
@@ -67,11 +56,17 @@ namespace LibraryManagement
                 var result = MessageBox.Show(message, caption,
                              MessageBoxButtons.OK,
                              MessageBoxIcon.Question);
-                return false;
             }
-
-            return true;
         }
+
+        private bool CheckDuplicates(string title, string iSBN)
+        {
+            // Check for dublicate books, Using title and ISBN
+            //throw new NotImplementedException();
+            return false;
+            
+        }
+
         private void clear()
         {
             tbTitle.Text = "";
@@ -83,25 +78,34 @@ namespace LibraryManagement
         }
         private void BookEnter_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if(UnsavedData())
+            {
+                string message = "Are you sure you want to close? Any unsaved data will be lost";
+                string caption = "Close";
+                var result = MessageBox.Show(message, caption,
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
 
-            string message = "Are you sure you want to close? Any unsaved data will be lost";
-            string caption = "Close";
-            var result = MessageBox.Show(message, caption,
-                             MessageBoxButtons.YesNo,
-                             MessageBoxIcon.Question);
+                e.Cancel = (result == DialogResult.No);
+            }
 
-            e.Cancel = (result == DialogResult.No);
+        }
 
+        private bool UnsavedData()
+        {
+            //throw new NotImplementedException();
+            // Add Checks for data entry boxes
+            return false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            tbTitle.Text = "Leviathan Wakes";
-            tbAuthor.Text = "James A Cordory";
-            tbISBN.Text = "123456";
-            tbSummary.Text = "Space is deadly, will they survive in the outer where no one can hear you scream?";
-            tbPublisher.Text = "Oribit";
-            cbGenre.SelectedText = "Science fiction";
+            tbTitle.Text = "Goliath";
+            tbAuthor.Text = "Scott Westerfeild";
+            tbISBN.Text = "978-1-4169-7178-8";
+            tbSummary.Text = "Alek and Deryn are aboard the Leviathan when the ship is ordered to pick up an unsual passenger. This brilliant/manical Inventer claims to have a weapon called Goliath that can end the war. But whose side is he really on?";
+            tbPublisher.Text = "Simon Pulse";
+            cbGenre.SelectedText = "Historical fiction";
         }
         private bool CheckForData()
         {
