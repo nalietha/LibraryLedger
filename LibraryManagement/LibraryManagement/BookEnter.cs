@@ -14,9 +14,12 @@ namespace LibraryManagement
 {
     public partial class BookEnter : Form
     {
+        private string _FileLocation = "..\\..\\Data\\UserNate.xml";
         public BookEnter()
         {
             InitializeComponent();
+
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -26,7 +29,7 @@ namespace LibraryManagement
             string ISBN = tbISBN.Text;
             string summary = tbSummary.Text;
             string publisher = tbPublisher.Text;
-            string genre = cbGenre.SelectedText;
+            string genre = cbGenre.GetItemText(cbGenre.SelectedItem);
 
             //Using connection set up in program.cs
             if (AddMedia(title, author,ISBN,summary,publisher,genre))
@@ -35,21 +38,37 @@ namespace LibraryManagement
             }
 
         }
-        public bool AddMedia(string title, string author, string ISBN, string summary,string publisher,string genre)
+        public bool AddMedia(string title, string author, string ISBN, string summary, string publisher, string genre)
         {
-            XElement doc = XElement.Load("..\\..\\UserNate.xml");
-            doc//.Element("User").Element("Books")
-                .Add(
-                    new XElement("Books",
-                    new XElement("Book",
-                    new XElement("Title", title),
-                    new XElement("Author", author),
-                    new XElement("Genre", genre),
-                    new XElement("Summary", summary),
-                    new XElement("Publisher", publisher))));
+            if (CheckForData())
+            {
+                XDocument doc = XDocument.Load(_FileLocation);
+                int numberOfBooks = doc.Descendants("Book").Count();
 
-            doc.Save("UserNate.xml");
 
+                XElement Book = (
+                        new XElement("Book", new XAttribute("id", numberOfBooks + 1),
+                        new XElement("Title", title),
+                        new XElement("Author", author),
+                        new XElement("Genre", genre),
+                        new XElement("ISBN", ISBN),
+                        new XElement("Publisher", publisher),
+                        new XElement("Summary", summary)));
+
+                //doc.Element("User").Element("Books").Add(new XElement(Book));
+                doc.Root.Element("Books").Add(Book);
+
+                doc.Save(_FileLocation);
+            }
+            else
+            {
+                string message = "Enter required data";
+                string caption = "Required";
+                var result = MessageBox.Show(message, caption,
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Question);
+                return false;
+            }
 
             return true;
         }
@@ -60,11 +79,12 @@ namespace LibraryManagement
             tbISBN.Text = "";
             tbSummary.Text = "";
             tbPublisher.Text = "";
-            cbGenre.SelectedText = "";
+            cbGenre.SelectedIndex = 0;
         }
         private void BookEnter_FormClosing(object sender, FormClosingEventArgs e)
         {
-            string message = "Are you sure you want to close? any unsaved data will be lost";
+
+            string message = "Are you sure you want to close? Any unsaved data will be lost";
             string caption = "Close";
             var result = MessageBox.Show(message, caption,
                              MessageBoxButtons.YesNo,
@@ -83,5 +103,18 @@ namespace LibraryManagement
             tbPublisher.Text = "Oribit";
             cbGenre.SelectedText = "Science fiction";
         }
+        private bool CheckForData()
+        {
+            if(tbTitle.Text == null || tbTitle.Text == string.Empty)
+            {
+                return false;
+            }
+            else if (tbAuthor.Text == null || tbAuthor.Text == string.Empty)
+            {
+                return false;
+            }
+            return true;
+        }
+
     }
 }
