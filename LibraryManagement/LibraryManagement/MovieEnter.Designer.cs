@@ -225,6 +225,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MovieEnter";
             this.Text = "MovieEnter";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MovieEnter_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
