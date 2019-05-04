@@ -11,7 +11,7 @@
     </Book>
     <Book id="2">
       <Title>Leviathan</Title>
-      <Author>Scoot Westerfeild</Author>
+      <Author>Scott Westerfeild</Author>
       <Genre>Historical fiction	</Genre>
       <ISBN>978-1-4169-7174-0</ISBN>
       <Publisher>Simon Pulse</Publisher>
@@ -19,11 +19,27 @@
     </Book>
     <Book id="3">
       <Title>Behemoth</Title>
-      <Author>Scoot Westerfeild</Author>
+      <Author>Scott Westerfeild</Author>
       <Genre>Historical fiction	</Genre>
       <ISBN>978-1-4169-7176-4</ISBN>
       <Publisher>Simon Pulse</Publisher>
       <Summary>The Behemoth is the fiercest creater in the British navy. It can swallow enemy battleships with one bite. The Darwinists will need it, now that they are att war with the Clanker Powers. </Summary>
+    </Book>
+    <Book id="4">
+      <Title>Goliath</Title>
+      <Author>Scott Westerfeild</Author>
+      <Genre></Genre>
+      <ISBN>978-1-4169-7178-8</ISBN>
+      <Publisher>Simon Pulse</Publisher>
+      <Summary>Alek and Deryn are aboard the Leviathan when the ship is ordered to pick up an unsual passenger. This brilliant/manical Inventer claims to have a weapon called Goliath that can end the war. But whose side is he really on?</Summary>
+    </Book>
+    <Book id="5">
+      <Title>Goliath</Title>
+      <Author>Scott Westerfeild</Author>
+      <Genre></Genre>
+      <ISBN>978-1-4169-7178-8</ISBN>
+      <Publisher>Simon Pulse</Publisher>
+      <Summary>Alek and Deryn are aboard the Leviathan when the ship is ordered to pick up an unsual passenger. This brilliant/manical Inventer claims to have a weapon called Goliath that can end the war. But whose side is he really on?</Summary>
     </Book>
   </Books>
   <Movies>

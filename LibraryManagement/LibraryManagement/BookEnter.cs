@@ -35,7 +35,7 @@ namespace LibraryManagement
             //Using connection set up in program.cs
             if (CheckForData())
             {
-                if (CheckDuplicates(title, ISBN))
+                if (Media.CheckDuplicates(title, ISBN, _FileLocation, "Book"))
                 {
                     string message = "Book is already in your Catalog";
                     string caption = "Duplicate";
@@ -59,13 +59,7 @@ namespace LibraryManagement
             }
         }
 
-        private bool CheckDuplicates(string title, string iSBN)
-        {
-            // Check for dublicate books, Using title and ISBN
-            //throw new NotImplementedException();
-            return false;
-            
-        }
+        
 
         private void clear()
         {
@@ -74,7 +68,7 @@ namespace LibraryManagement
             tbISBN.Text = "";
             tbSummary.Text = "";
             tbPublisher.Text = "";
-            cbGenre.SelectedIndex = 0;
+            cbGenre.ResetText();
         }
         private void BookEnter_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -88,14 +82,21 @@ namespace LibraryManagement
 
                 e.Cancel = (result == DialogResult.No);
             }
-
         }
 
         private bool UnsavedData()
         {
             //throw new NotImplementedException();
             // Add Checks for data entry boxes
-            return false;
+            if (tbTitle.Text == "" &&
+                    tbAuthor.Text == "" &&
+                    tbISBN.Text == "" &&
+                    tbSummary.Text == "" &&
+                    tbPublisher.Text == "")
+            {
+                return false;
+            }
+            return true;
         }
 
         private void button1_Click(object sender, EventArgs e)

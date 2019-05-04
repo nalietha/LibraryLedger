@@ -46,6 +46,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cbGenre = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblSavedPrompt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -269,6 +270,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lblSavedPrompt
+            // 
+            this.lblSavedPrompt.AutoSize = true;
+            this.lblSavedPrompt.Location = new System.Drawing.Point(256, 332);
+            this.lblSavedPrompt.Name = "lblSavedPrompt";
+            this.lblSavedPrompt.Size = new System.Drawing.Size(0, 13);
+            this.lblSavedPrompt.TabIndex = 17;
+            // 
             // BookEnter
             // 
             this.AcceptButton = this.btnAdd;
@@ -276,6 +285,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(557, 355);
+            this.Controls.Add(this.lblSavedPrompt);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cbGenre);
             this.Controls.Add(this.label7);
@@ -326,5 +336,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbGenre;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblSavedPrompt;
     }
 }

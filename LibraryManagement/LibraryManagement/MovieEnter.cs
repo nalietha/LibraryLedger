@@ -15,10 +15,12 @@ namespace LibraryManagement
     {
         private string _FileLocation= "..\\..\\Data\\UserNate.xml";
         Classes.AddMedia MMedia = new Classes.AddMedia();
+
         public MovieEnter()
         {
             InitializeComponent();
         }
+
         public MovieEnter(string User)
         {
 
@@ -45,36 +47,40 @@ namespace LibraryManagement
                              MessageBoxIcon.Question);
             }
         }
-        public bool AddMedia()
+        private bool UnsavedData()
         {
-            if (CheckForData())
+            //throw new NotImplementedException();
+            // Add Checks for data entry boxes
+            if (tbTitle.Text == "" &&
+                    tbAuthor.Text == "" &&
+                    tbSummary.Text == "")
             {
-                
+                return false;
             }
-            else
-            {
-
-            }
-
             return true;
         }
+
         private void clear()
         {
             tbTitle.Text = "";
             tbAuthor.Text = "";
             tbSummary.Text = "";
-            cbGenre.SelectedText = "";
+            cbGenre.ResetText();
+
         }
+
         private void MovieEnter_FormClosing(object sender, FormClosingEventArgs e)
         {
-            string message = "Are you sure you want to close? Any unsaved data will be lost";
-            string caption = "Close";
-            var result = MessageBox.Show(message, caption,
-                             MessageBoxButtons.YesNo,
-                             MessageBoxIcon.Question);
+            if (UnsavedData())
+            {
+                string message = "Are you sure you want to close? Any unsaved data will be lost";
+                string caption = "Close";
+                var result = MessageBox.Show(message, caption,
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
 
-            e.Cancel = (result == DialogResult.No);
-
+                e.Cancel = (result == DialogResult.No);
+            }
         }
 
         private bool CheckForData()
